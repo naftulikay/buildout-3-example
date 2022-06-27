@@ -34,6 +34,6 @@ jobs:
       # run buildout to download project dependencies, etc.
       - run: buildout
       # show python version
-      - run: bin/python --version
+      - run: bin/python -c 'import sys;print(sys.version)'
       # run tests
       - run: bin/test -vv
