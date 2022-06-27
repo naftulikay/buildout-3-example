@@ -1,4 +1,4 @@
-# buildout-3-example
+# buildout-3-example ![Test Status][test.svg]
 
 Demo project showcasing a minimal [`buildout`][buildout] environment for project structure.
 
@@ -22,3 +22,4 @@ Licensed at your discretion under either:
  - [MIT License](./LICENSE-MIT)
 
  [buildout]: https://github.com/buildout/buildout
+ [test.svg]: https://github.com/naftulikay/buildout-3-example/actions/workflows/python.yml/badge.svg

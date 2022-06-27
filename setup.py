@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+ #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 from setuptools import setup, find_packages
@@ -14,6 +14,7 @@ setup(
         #      them here in the exact same format that would be used in
         #      requirements.txt
         'click >=8.0,<9',
+        'numpy == 1.23.0',
     ],
     entry_points={
         "console_scripts": [
