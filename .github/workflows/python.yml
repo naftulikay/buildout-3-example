@@ -1,0 +1,39 @@
+---
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+  workflow_dispatch: {}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      # setup python using pyenv's .python-version file to specify version
+      - uses: actions/setup-python@v4
+        with:
+          python-version-file: '.python-version'
+      # load cache if possible
+      - uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cache/pip/
+            ./develop-eggs/
+            ./eggs/
+            ./parts/
+          # blow away the cache if buildout.cfg, requirements.txt, or setup.py change
+          key: ${{ runner.os }}-python-${{ hashFiles('buildout.cfg', 'requirements.txt', 'setup.py') }}
+      # install the buildout utility
+      - run: pip install -r requirements.txt
+      # run buildout to download project dependencies, etc.
+      - run: buildout
+      # show python version
+      - run: bin/python --version
+      # run tests
+      - run: bin/test -vv

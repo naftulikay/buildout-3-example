@@ -1,0 +1,3 @@
+# buildout 3 is not released at time of writing, so we fetch it using the Git tag from their repository, and we tell
+# pip that its egg name is 'zc.buildout' so that it can recognize that it is indeed installed.
+git+https://github.com/buildout/buildout.git@3.0.0rc3#egg=zc.buildout
