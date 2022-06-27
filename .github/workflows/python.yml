@@ -30,6 +30,8 @@ jobs:
           # blow away the cache if buildout.cfg, requirements.txt, or setup.py change
           key: ${{ runner.os }}-python-${{ hashFiles('buildout.cfg', 'requirements.txt', 'setup.py') }}
       # install the buildout utility
+      # NOTE since we have to fetch from Git, it reinstalls zc.buildout on every run, which is slow. there does not
+      #      appear to be a way to avoid the reinstall, see: https://pip.pypa.io/en/stable/topics/vcs-support/#url-fragments
       - run: pip install -r requirements.txt
       # run buildout to download project dependencies, etc.
       - run: buildout
