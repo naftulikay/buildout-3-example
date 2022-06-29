@@ -2,7 +2,9 @@
 
 /.installed.cfg
 /bin/
+/build/
 /develop-eggs/
+/dist/
 /eggs/
 /parts/
 /src/*.egg-info/

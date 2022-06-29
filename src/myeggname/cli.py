@@ -3,7 +3,6 @@
 
 import argparse
 import logging
-import numpy
 
 from .utils import configure_logging
 

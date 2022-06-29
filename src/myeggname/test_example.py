@@ -5,6 +5,10 @@ from typing import Tuple
 
 import unittest
 
+MINUTE_SECS = 60
+HOUR_SECS = (60 * MINUTE_SECS)
+DAY_SECS = (24 * HOUR_SECS)
+
 
 class OldFashionedTest(unittest.TestCase):
 
@@ -28,10 +32,6 @@ class OldFashionedTest(unittest.TestCase):
                     minutes, seconds = divmod(rem, 60)
 
             return days, hours, minutes, seconds
-
-        MINUTE_SECS = (60)
-        HOUR_SECS = (60 * MINUTE_SECS)
-        DAY_SECS = (24 * HOUR_SECS)
 
         # 23 hours
         self.assertEqual((0, 23, 0, 0), duration_dhms(23 * HOUR_SECS))
